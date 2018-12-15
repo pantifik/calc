@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "name": "мука",
+      "weight": 2000,
+      "price": 60,
+      "id": 1
+    },
+    {
+      "name": "zx",
+      "weight": 1,
+      "price": 1,
+      "id": 2
+    },
+    {
+      "name": "ww",
+      "weight": 2,
+      "price": 1,
+      "id": 3
+    },
+    {
+      "name": "ыва",
+      "weight": 11,
+      "price": 7,
+      "id": 4
+    }
+  ]
+}
