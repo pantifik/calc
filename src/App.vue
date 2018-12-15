@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <nav class="nav nav-pills nav-justified">
       <router-link to="/"
                    class="nav-link"
@@ -11,6 +11,11 @@
                    class="nav-link"
                    active-class="active">
         Calc
+      </router-link>
+      <router-link to="/recipes"
+                   class="nav-link"
+                   active-class="active">
+        RecipesBook
       </router-link>
     </nav>
 
