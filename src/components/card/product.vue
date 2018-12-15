@@ -63,8 +63,10 @@
     methods: {
       changeValue(event) {
         let data = {};
-        data[event.target.id] = this[event.target.id];
-        this.$store.commit('changeState', data);
+        data.storeName = 'product';
+        data.name = event.target.id;
+        data.value = this[event.target.id];
+        this.$store.commit('addItem', data);
       }
     }
   }

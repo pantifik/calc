@@ -7,25 +7,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    name: '',
-    weight: null,
-    price: null,
+    product: {
+    },
+    recipe: {}
   },
   mutations: {
-    changeState(state, payload) {
-      for (let key in payload) {
-        if(!payload.hasOwnProperty(key)) continue;
-        state[key] = payload[key]
-      }
-    },
-    changeName(state, payload) {
-      state.name = payload;
-    },
-    changeWeight(state, payload) {
-      state.weight = payload;
-    },
-    changeCoast(state, payload) {
-      state.coast = payload;
+    addItem(state, payload) {
+      let store = state[payload.storeName];
+      Vue.set(store, payload.name, payload.value);
     }
-  }
+  },
+  
 });

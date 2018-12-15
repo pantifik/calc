@@ -52,11 +52,10 @@
     },
     methods: {
       sendForm() {
-        this.$http.post('products', {
-              name: this.$store.state.name,
-              weight: this.$store.state.weight,
-              price: this.$store.state.price,
-            })
+        let data = this.$store.state[this.switcher],
+            tableName = this.switcher + 's';
+
+        this.$http.post(tableName, data)
             .then(res => {
 
         });
@@ -64,10 +63,12 @@
     },
     computed: {
       changedData(){
-        return !!this.$store.state.name
+
+        return this.$store.state.product
       },
       formCheck() {
-        return this.$store.state.name && this.$store.state.weight && this.$store.state.price
+        let stateName = this.$store.state[this.switcher];
+        return stateName.name && stateName.weight && stateName.price
       }
     },
     components: {
