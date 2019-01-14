@@ -1,21 +1,20 @@
 <template>
   <div class="product">
-    <div class="row" v-for="(input,key) in inputs">
+    <div class="row" v-for="(input,key) in inputs" :key="key">
       <card-input
-              :key="key"
               :inputName="input.inputName"
               :inputId="input.inputId"
-              :inputParent="input.inputParent"
-              :defaultValue="input.defaultValue"
+              :defaultValue="input.value"
+              v-model="input.value"
+              @input="changeProductVal({name: input.inputId, value: input.value})"
       ></card-input>
     </div>
-
-
   </div>
 </template>
 
 <script>
-  import cardInput from './cardInput.vue'
+  import cardInput from './cardInput.vue';
+  import { mapMutations } from 'vuex';
 
   export default {
     data() {
@@ -24,26 +23,28 @@
           {
             inputName: "Название",
             inputId: "name",
-            inputParent: "product",
-            defaultValue: ""
+            value: this.$store.state.product.name
           },
           {
             inputName: "Вес",
             inputId: "weight",
-            inputParent: "product",
-            defaultValue: 0
+            value: this.$store.state.product.weight
           },
           {
             inputName: "Цена",
             inputId: "price",
-            inputParent: "product",
-            defaultValue: 0
+            value: this.$store.state.product.price
           },
         ]
       }
     },
     components: {
       cardInput,
+    },
+    methods: {
+      ...mapMutations([
+        'changeProductVal'
+      ])
     }
   }
 </script>

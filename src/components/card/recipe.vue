@@ -1,52 +1,85 @@
 <template>
   <div class="recipe">
     <div class="row">
-      <div class="form-group col-md-12">
-        <label for="name">Название</label>
-        <input type="text"
-               class="form-control"
-               id="name"
-               aria-describedby="ProductName"
-               placeholder="">
-        <small class="form-text text-muted">
-          We'll never share your email with anyone else.
-        </small>
-      </div>
+      <card-input
+              inputName="Название"
+              inputId="name"
+              defaultValue=""
+              v-model="recipeName"
+      ></card-input>
     </div>
     <p>Состав</p>
-
-    <div class="row">
-      <div class="form-group col-md-12">
-        <label for="price">Продукт</label>
-        <input type="text"
-               class="form-control"
-               id="price"
-               aria-describedby="ProductPrice"
-               placeholder="">
-        <small class="form-text text-muted">
-          We'll never share your email with anyone else.
-        </small>
-      </div>
+      <table class="table table-striped">
+        <tbody>
+          <tr v-for="(item, index) in recipeItems" :key="index">
+            <th scope="row">{{ index + 1 }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.weight }}</td>
+          </tr>
+        </tbody>
+      </table>
+    <div class="row" v-for="(input,key) in inputs" :key="key">
+      <card-input
+              :inputName="input.inputName"
+              :inputId="input.inputId"
+              :defaultValue="input.value"
+              v-model="input.value"
+              @input="changeRecipeItem({name: input.inputId, value: input.value})"
+      ></card-input>
     </div>
+    <button type="button"
+            class="btn btn-success"
+            @click="addRecipeItems">
+      Добавить
+    </button>
 
-    <div class="row">
-      <div class="form-group col-md-12">
-        <label for="weight">Вес</label>
-        <input type="text"
-               class="form-control"
-               id="weight"
-               aria-describedby="ProductWeight"
-               placeholder="">
-        <small class="form-text text-muted">
-          We'll never share your email with anyone else.
-        </small>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
+  import cardInput from './cardInput.vue';
+  import { mapMutations } from 'vuex';
+
   export default {
+    data() {
+      return {
+        inputs: [
+          {
+            inputName: "Название",
+            inputId: "name",
+            value: this.$store.state.recipe.item.name
+          },
+          {
+            inputName: "Вес",
+            inputId: "weight",
+            value: this.$store.state.recipe.item.weight
+          }
+        ]
+      }
+    },
+    methods: {
+      ...mapMutations([
+        'changeRecipeItem',
+        'changeRecipeName',
+        'addRecipeItems'
+      ])
+    },
+    computed: {
+      recipeName: {
+        get () {
+          return this.$store.state.recipe.name
+        },
+        set (value) {
+          this.changeRecipeName(value)
+        }
+      },
+      recipeItems: function () {
+        return this.$store.state.recipe.items
+      }
+    },
+    components: {
+      cardInput,
+    }
   }
 </script>
 

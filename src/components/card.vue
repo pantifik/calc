@@ -3,7 +3,7 @@
     <form @submit.prevent="sendForm">
       <div class="form-group btn-group btn-group-toggle">
         <label class="btn btn-secondary"
-               :class="{ 'active': switcher == 'product'}">
+               :class="{ 'active': switcher === 'product'}">
           <input type="radio"
                  name="options"
                  value="product"
@@ -11,7 +11,7 @@
           > Продукт
         </label>
         <label class="btn btn-secondary"
-               :class="{ 'active': switcher == 'recipe'}">
+               :class="{ 'active': switcher === 'recipe'}">
           <input type="radio"
                  name="options"
                  value="recipe"
@@ -32,7 +32,9 @@
       </div>
       <button type="submit"
               class="btn btn-primary"
-              :disabled="!formCheck">Submit</button>
+              :disabled="!formCheck">
+        Submit
+      </button>
     </form>
 
     <pre>{{ changedData }}</pre>
@@ -47,7 +49,7 @@
   export default {
     data() {
       return {
-        switcher: 'product',
+        switcher: 'product'
       }
     },
     methods: {
@@ -56,19 +58,14 @@
             tableName = this.switcher + 's';
 
         this.$http.post(tableName, data)
-            .then(res => {
-
-        });
       }
     },
     computed: {
       changedData(){
-
-        return this.$store.state.product
+        return this.$store.getters.getState
       },
       formCheck() {
-        let stateName = this.$store.state[this.switcher];
-        return stateName.name && stateName.weight && stateName.price
+        return true
       }
     },
     components: {

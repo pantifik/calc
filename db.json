@@ -1,28 +1,59 @@
 {
   "products": [
     {
-      "name": "мука",
-      "weight": 2000,
-      "price": 60,
+      "name": "фы",
+      "weight": 2,
+      "price": 3,
       "id": 1
     },
     {
-      "name": "zx",
-      "weight": 1,
-      "price": 1,
+      "name": "as",
+      "weight": "5",
+      "price": "67",
       "id": 2
     },
     {
-      "name": "ww",
-      "weight": 2,
-      "price": 1,
       "id": 3
     },
     {
-      "name": "ыва",
-      "weight": 11,
-      "price": 7,
+      "name": "ytu",
+      "weight": "45",
+      "price": "12",
       "id": 4
+    },
+    {
+      "name": "ывфф",
+      "weight": "12",
+      "price": "34",
+      "id": 5
+    }
+  ],
+  "recipes": [
+    {
+      "name": "",
+      "item": {
+        "name": "rtew444",
+        "weight": "321233"
+      },
+      "items": [
+        {
+          "name": "wqe",
+          "weight": "23"
+        },
+        {
+          "name": "rtew",
+          "weight": "32"
+        },
+        {
+          "name": "rtew444",
+          "weight": "32"
+        },
+        {
+          "name": "rtew444",
+          "weight": "321233"
+        }
+      ],
+      "id": 1
     }
   ]
 }

@@ -6,8 +6,8 @@
            :id="inputId"
            :aria-describedby="inputName"
            placeholder=""
-           v-model="val"
-           @input="changeValue">
+           :value="defaultValue"
+           @input="$emit('input', $event.target.value)">
     <small class="form-text text-muted">
       We'll never share your email with anyone else.
     </small>
@@ -19,23 +19,8 @@
     props: [
       'inputName',
       'inputId',
-      'inputParent',
       'defaultValue'
-    ],
-    data() {
-      return {
-        val: this.defaultValue
-      }
-    },
-    methods: {
-      changeValue() {
-        let data = {};
-        data.storeName = this.inputParent;
-        data.name = this.inputId;
-        data.value = this.val;
-        this.$store.commit('addItem', data);
-      }
-    }
+    ]
   }
 </script>
 
