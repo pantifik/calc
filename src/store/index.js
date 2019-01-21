@@ -14,27 +14,37 @@ export default new Vuex.Store({
     },
     recipe: {
       name: '',
-      item: {
-        name: '',
-        weight: 0
-      },
-      items: []
-    }
+      items: [
+      ]
+    },
+    recipeItem: {
+      name: '',
+      weight: 0
+    },
     
   },
   mutations: {
     changeProductVal(state, payload) {
       state.product[payload.name] = payload.value;
     },
+    
+    /******************* RECIPE MUTATION ***********************/
     changeRecipeName(state, payload) {
       state.recipe.name = payload;
     },
     changeRecipeItem(state, payload) {
-      state.recipe.item[payload.name] = payload.value;
+      state.recipeItem[payload.name] = payload.value;
     },
     addRecipeItems(state) {
-      state.recipe.items.push(Object.assign({}, state.recipe.item))
-    }
+      state.recipe.items.push(Object.assign({}, state.recipeItem))
+    },
+    /*createNewItem(state) {
+      state.recipe.items.push({
+                                name: '',
+                                weight: 0
+                              })
+    }*/
+    /*******************END RECIPE MUTATION***********************/
   },
   actions: {
   

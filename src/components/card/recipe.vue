@@ -47,12 +47,12 @@
           {
             inputName: "Название",
             inputId: "name",
-            value: this.$store.state.recipe.item.name
+            value: this.$store.state.recipeItem.name
           },
           {
             inputName: "Вес",
             inputId: "weight",
-            value: this.$store.state.recipe.item.weight
+            value: this.$store.state.recipeItem.weight
           }
         ]
       }

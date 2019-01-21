@@ -49,7 +49,7 @@
   export default {
     data() {
       return {
-        switcher: 'product'
+        switcher: 'recipe'
       }
     },
     methods: {

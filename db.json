@@ -30,27 +30,15 @@
   ],
   "recipes": [
     {
-      "name": "",
-      "item": {
-        "name": "rtew444",
-        "weight": "321233"
-      },
+      "name": "we",
       "items": [
         {
-          "name": "wqe",
-          "weight": "23"
+          "name": "asd",
+          "weight": "43"
         },
         {
-          "name": "rtew",
-          "weight": "32"
-        },
-        {
-          "name": "rtew444",
-          "weight": "32"
-        },
-        {
-          "name": "rtew444",
-          "weight": "321233"
+          "name": "asd23",
+          "weight": "43"
         }
       ],
       "id": 1
