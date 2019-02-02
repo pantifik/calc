@@ -26,6 +26,30 @@
       "weight": "12",
       "price": "34",
       "id": 5
+    },
+    {
+      "name": "product",
+      "weight": "1000",
+      "price": "100",
+      "id": 6
+    },
+    {
+      "name": "asd",
+      "weight": "23",
+      "price": "56",
+      "id": 7
+    },
+    {
+      "name": "мука",
+      "weight": "2000",
+      "price": "58",
+      "id": 8
+    },
+    {
+      "name": "соль",
+      "weight": "1000",
+      "price": "20",
+      "id": 9
     }
   ],
   "recipes": [
@@ -37,11 +61,61 @@
           "weight": "43"
         },
         {
-          "name": "asd23",
-          "weight": "43"
+          "name": "product",
+          "weight": "1"
         }
       ],
       "id": 1
+    },
+    {
+      "name": "ere",
+      "items": [
+        {
+          "name": "asd",
+          "weight": "43"
+        },
+        {
+          "name": "product",
+          "weight": "23"
+        },
+        {
+          "name": "product",
+          "weight": "43"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "45",
+      "items": [
+        {
+          "name": "asd",
+          "weight": "43"
+        },
+        {
+          "name": "product",
+          "weight": "4"
+        },
+        {
+          "name": "product",
+          "weight": "23"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "тесто",
+      "items": [
+        {
+          "name": "мука",
+          "weight": "500"
+        },
+        {
+          "name": "соль",
+          "weight": "3"
+        }
+      ],
+      "id": 4
     }
   ]
 }

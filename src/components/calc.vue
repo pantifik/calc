@@ -16,16 +16,12 @@
      <tr v-for="(product, index) in products"
          :key="index">
        <th scope="row">{{ index + 1 }}</th>
-       <td @dblclick.prevent="edit(product)">
+       <td>
          {{ product.name }}
-         <input type="text"
-                :class="{active: editedProduct == product, editInput: !editedProduct}"
-                v-model="product.name"
-                >
        </td>
        <td>{{ product.weight }}</td>
        <td>{{ product.price }}</td>
-       <td>{{ getCoast(product.price,product.weight) }}</td>
+       <td>{{ coast(product) }}</td>
      </tr>
      </tbody>
    </table>
@@ -34,23 +30,21 @@
 </template>
 
 <script>
+  import lib from '../mixins/methods'
 
   export default {
-    name: "calc",
+    mixins: [lib],
+
     data: function () {
       return {
         products: {},
         editedProduct: null,
       }
     },
+
     methods: {
-      getCoast(price, weight) {
-        return (price / weight).toFixed(2)
-      },
-      edit(product) {
-        this.editedProduct = product
-      }
     },
+
     created() {
       this.$http.get('products').then(response => {
         return response.json();
@@ -64,10 +58,4 @@
 </script>
 
 <style scoped>
-  .editInput{
-    display: none;
-  }
-  .v{
-    display: block
-  }
 </style>
